@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+		http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+
+
+    <action-state id="start">
+        <set name="flowScope.createOrNot" value="1" type="integer"/>
+        <transition on="success" to="is-start"/>
+    </action-state>
+
+
+    <decision-state id="is-start">
+        <on-entry>
+            <evaluate expression="gamerBuss.informWeFree()"/>
+        </on-entry>
+        <if test="flowScope.createOrNot==1"
+            then="lloadData"
+            else="mamas"
+        />
+    </decision-state>
+
+
+    <action-state id="lloadData">
+        <evaluate expression="allGames.createGamerByName(currentUser.name)"/>
+        <evaluate expression="externalContext.nativeRequest.session.setAttribute('USER_GAMER_NAME', currentUser.name)"/>
+        <transition on="success" to="mamas"/>
+    </action-state>
+
+
+    <view-state id="mamas">
+        <on-entry>
+            <set name="flowScope.createOrNot" value="2" type="integer"/>
+        </on-entry>
+        <transition on="next0" to="is-start" />
+        <transition on="next3" to="stop" />
+    </view-state>
+
+
+    <end-state id="stop" view="externalRedirect:/goout">
+
+    </end-state>
+
+</flow>
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <script type="text/javascript" src="resources/controller.js"></script>
+    <script type="text/javascript" src="resources/main_js.js"></script>
+    <script type="text/javascript" src="resources/ajaxNswomp.js"></script>
+    <script type="text/javascript" src="resources/model.js"></script>
+    <script type="text/javascript" src="resources/hot2vert.js"></script>
+    <link rel="stylesheet" th:href="@{/resources/style.css}">
+    <link rel="stylesheet" th:href="@{/resources/plugins/jquery.dataTables.min.css}">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <link rel="stylesheet" th:href="@{/resources/style.css}">
+        <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"></script>
+        <script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Start game</title>
+</head>
+
+
+<body>
+
+
+<div class="page-header" style="background-color: lightslategray; color: white; width: 100%; padding-left: 5%; padding-right: 5%; padding-top: 2%; padding-bottom: 2%;">
+    <h3>Морской бой! <br/><small style="color: navy; font-size: 75%">Следуйте инструкциям...</small></h3>
+    <p id="headerForMessage" style="font-family: sans-serif; font-size: 100%; color: yellow" th:text="${#authentication.name}+' выбирает с кем играть ...'"></p>
+</div>
+
+
+
+<div id="forNamePlacer" style="visibility: hidden;" th:text="${#authentication.name}"></div>
+<div id="forFolwPlacer" style="visibility: hidden;" th:text="${flowExecutionUrl}"></div>
+
+
+<div id="clockWait" style="width: 100%; text-align: center">
+    <div style="display: inline-block">
+        <img th:src="@{/resources/CursorWait.gif}"/>
+    </div>
+</div>
+
+<div id="next0">
+    <div class="container">
+        <div class="row col-xs-12">
+                <table id="mamaTable" class="stripe hover row-border" style="width: 100%; visibility: hidden">
+                    <thead>
+                    <tr>
+                        <th><.../th>
+                        <th>...</th>
+                        <th>...</th>
+                        <th>...</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    </tbody>
+                </table>
+        </div>
+        <div class="row col-xs-12">
+            <br/>
+
+            <!  - Выход из программы     >
+            <a onclick="goNextStep('next3');" class="btn btn-primary" style="margin:10px" role="button">Выход</a>
+
+        </div>
+    </div>
+</div>
+
+
+<!- Вставка страницы папы>
+<div id="next1" style="visibility: hidden">
+    <div th:include="papas:: papasStep"/>
+</div>
+
+<!- Вставка страницы деда>
+<div id="next2" style="visibility: hidden">
+    <div th:include="dedas:: dedasStep"/>
+</div>
+
+<!- Вставка модуля диалогового окна>
+<div th:include="dialog:: dialogInvite"/>
+<div th:include="infodialog:: dialogInfo"/>
+
+
+
+<!  - Всегда окончание     >
+<script type="text/javascript" src="webjars/jquery-ui/1.11.4/jquery-ui.min.js"></script>
+<script type="text/javascript" src="webjars/sockjs-client/1.1.2/sockjs.min.js"></script>
+<script type="text/javascript" src="resources/plugins/stomp.min.js"></script>
+<script type="text/javascript" src="resources/plugins/TouchEmul.js"></script>
+<script type="text/javascript" src="resources/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="resources/gameWorkflow.js"></script>
+
+
+<!  - Детект мобилок и настройка для айфони   >
+<script type="text/javascript">
+    $(document).ready(function () {
+        change();
+        initMamaSTOMP();
+    });
+</script>
+<!  - конец окончания и нстроек    >
+
+
+</body>
+</html>

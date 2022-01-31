@@ -1,0 +1,97 @@
+#login {
+    background-color: darkgray;
+    padding: 10px;
+    margin-top: 100px;
+    color: white;
+    font-family: sans-serif;
+    box-shadow: 7px 7px 10px 5px dimgray;
+}
+
+#login input {
+    color: darkblue;
+}
+
+.items {
+    background-color: cadetblue;
+    margin: 0;
+    padding: 0;
+    border: double;
+    border-color: black;
+}
+
+.appoints {
+    background-color: green;
+    margin: 0;
+    padding: 0;
+    border: double;
+    border-color: black;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.spaser1 {
+    display: block;
+    height: 20px;
+}
+.spaser2 {
+    display: block;
+    height: 8px;
+}
+.spaser3 {
+    display: inline-block;
+    width: 8px;
+}
+
+.draggable {
+    display: inline-block;
+}
+
+.row1 {
+    margin-bottom: 8px;
+}
+
+.alife {
+    background-color: green;
+}
+
+.neighbour {
+    background-color: cadetblue;
+}
+
+.frameFor {
+    border: none;
+    position: absolute;
+    color: white;
+}
+
+.hit{
+    background-color: darkslategray;
+}
+
+.zerohit{
+    background-color: gray;
+}
+
+.injured{
+    background-color: darksalmon !important;
+}
+
+.killed{
+    background-color: darkred !important;
+}
+
+
+.radius
+{
+/* Настройка скругленных углов для div во всех браузерах - скачали в интернете с сайта
+"http://rmcreative.ru/blog/post/krossbrauzernyy-border-radius", спасибо авторам за это!*/
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+}

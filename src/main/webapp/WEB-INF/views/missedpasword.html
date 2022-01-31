@@ -1,0 +1,27 @@
+
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" th:href="@{/resources/style.css}">
+    <link rel="stylesheet" th:href="@{/resources/style.css}">
+        <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+        <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"></script>
+        <script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Error</title>
+</head>
+
+
+<body>
+<div class="jumbotron">
+    <h1>Ошибка заполнения</h1>
+    <p>Пороли не совпадают</p>
+    <p><a th:href="@{/register}" class="btn btn-primary btn-lg" role="button" >Повторить</a></p>
+</div>
+
+
+</body>
+</html>
